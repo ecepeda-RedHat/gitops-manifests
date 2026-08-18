@@ -1,10 +1,10 @@
 apiVersion: apps/v1
-  kind: Deployment
-  metadata:
+kind: Deployment
+metadata:
     name: nodejs-sample
     labels:
       app: nodejs-sample
-  spec:
+spec:
     replicas: 1
     selector: 
       matchLabels:
