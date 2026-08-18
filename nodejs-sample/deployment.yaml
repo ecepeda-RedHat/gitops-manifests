@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: nodejs-sample
+    labels:
+      app: nodejs-sample
+  spec:
+    replicas: 1
+    selector: 
+      matchLabels:
+        app: nodejs-sample
+    template:
+      metadata:
+        labels:
+          app: nodejs-sample
+      spec:
+        containers:
+          - name: nodejs-sample
+            image: image-registry.openshift-image-registry.svc:5000/prueba-pipeline/nodejs-sample:1.0.0
+            ports:
+              - containerPort: 8080
+            env:
+              - name: PORT
+                value: "8080"
